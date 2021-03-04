@@ -1,4 +1,4 @@
-deeponion-x13_hash
+deeponion-x13-hash
 ===========================
 
 Python module for DeepOnion's X13 hashing.
