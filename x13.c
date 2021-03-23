@@ -19,7 +19,7 @@
 #include "sha3/sph_fugue.h"
 
 
-void x13_hash(const char* input, char* output)
+void deeponion_x13_hash(const char* input, char* output)
 {
     sph_blake512_context     ctx_blake;
     sph_bmw512_context       ctx_bmw;

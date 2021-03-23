@@ -17,9 +17,9 @@ static PyObject *x13_getpowhash(PyObject *self, PyObject *args)
     output = PyMem_Malloc(32);
 
 #if PY_MAJOR_VERSION >= 3
-    x13_hash((char *)PyBytes_AsString((PyObject*) input), output);
+    deeponion_x13_hash((char *)PyBytes_AsString((PyObject*) input), output);
 #else
-    x13_hash((char *)PyString_AsString((PyObject*) input), output);
+    deeponion_x13_hash((char *)PyString_AsString((PyObject*) input), output);
 #endif
     Py_DECREF(input);
 #if PY_MAJOR_VERSION >= 3
@@ -39,19 +39,19 @@ static PyMethodDef X13Methods[] = {
 #if PY_MAJOR_VERSION >= 3
 static struct PyModuleDef X13Module = {
     PyModuleDef_HEAD_INIT,
-    "deeponion-x13_hash",
+    "deeponion_x13_hash",
     "...",
     -1,
     X13Methods
 };
 
-PyMODINIT_FUNC PyInit_x13_hash(void) {
+PyMODINIT_FUNC PyInit_deeponion_x13_hash(void) {
     return PyModule_Create(&X13Module);
 }
 
 #else
 
-PyMODINIT_FUNC initx13_hash(void) {
-    (void) Py_InitModule("deeponion-x13_hash", X13Methods);
+PyMODINIT_FUNC initdeeponion_x13_hash(void) {
+    (void) Py_InitModule("deeponion_x13_hash", X13Methods);
 }
 #endif
