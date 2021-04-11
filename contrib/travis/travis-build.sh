@@ -1,13 +1,13 @@
 #!/bin/bash
 set -ev
 
-BUILD_REPO_URL=https://github.com/zebra-lucky/x11_hash
+BUILD_REPO_URL=https://github.com/thohemp/deeponion-x13-hash
 
 cd build
 
-git clone --branch $TRAVIS_TAG $BUILD_REPO_URL x11_hash
+git clone --branch $TRAVIS_TAG $BUILD_REPO_URL deeponion_x13_hash
 
 docker run --rm \
-    -v $(pwd):/root/x11_hash \
+    -v $(pwd):/root/deeponion-x13-hash \
     -t zebralucky/zbarw-build \
-    /root/x11_hash/x11_hash/contrib/travis/build.sh
+    /root/deeponion-x13-hash/deeponion-x13-hash/contrib/travis/build.sh

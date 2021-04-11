@@ -1,7 +1,7 @@
 #!/bin/bash
 
-BUILD_DIR=/root/x13_hash
-SRC_DIR=$BUILD_DIR/x13_hash
+BUILD_DIR=/root/deeponion-x13-hash
+SRC_DIR=$BUILD_DIR/deeponion-x13-hash
 
 # win32
 cd $SRC_DIR
@@ -15,10 +15,10 @@ autoreconf -fi
 make
 
 BUILD32=$BUILD_DIR/win32
-mkdir -p $BUILD32/x13_hash
-cp $SRC_DIR/.libs/libx11hash-0.dll $BUILD32/x13_hash
+mkdir -p $BUILD32/deeponion-x13-hash
+cp $SRC_DIR/.libs/libx13hash-0.dll $BUILD32/deeponion-x13-hash
 cd $BUILD32
-zip -r $BUILD_DIR/x13_hash-$X13HASH_VERSION-win32.zip x13_hash
+zip -r $BUILD_DIR/deeponion-x13-hash-$X13HASH_VERSION-win32.zip deeponion-x13-hash
 
 # win64
 cd $SRC_DIR
@@ -31,7 +31,7 @@ autoreconf -fi
 make
 
 BUILD64=$BUILD_DIR/win64
-mkdir -p $BUILD64/x13_hash
-cp $SRC_DIR/.libs/libx11hash-0.dll $BUILD64/x13_hash
+mkdir -p $BUILD64/deeponion-x13-hash
+cp $SRC_DIR/.libs/libx13hash-0.dll $BUILD64/deeponion-x13-hash
 cd $BUILD64
-zip -r $BUILD_DIR/x13_hash-$X11HASH_VERSION-win64.zip x13_hash
+zip -r $BUILD_DIR/deeponion-x13-hash-$X11HASH_VERSION-win64.zip deeponion-x13-hash
