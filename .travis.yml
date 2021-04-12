@@ -1,8 +1,7 @@
-
 sudo: required
 language: python
 services:
-  - docker
+- docker
 matrix:
   include:
   - os: linux
@@ -11,23 +10,21 @@ before_install:
 - echo x13hash version is $X13HASH_VERSION
 - echo tag is $TRAVIS_TAG
 install:
-- if [[ -n $TRAVIS_TAG ]]; then
-      ./contrib/travis/install.sh;
-  fi
+- if [[ -n $TRAVIS_TAG ]]; then ./contrib/travis/install.sh; fi
 script:
-- if [[ -n $TRAVIS_TAG ]]; then
-      mkdir -p build;
-      ./contrib/travis/travis-build.sh;
+- if [[ -n $TRAVIS_TAG ]]; then mkdir -p build; ./contrib/travis/travis-build.sh;
   fi
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: "gTbtVs+15TUluNaxdQCZBkovEx7JKPI66QZUEO9UgzW1sDKTCeE84Z0Am3xb7xNAZhx2EkpbswVPi77l1TkhQCUnO92vvfAra6TsfdICiqbM2KVeFTmYljPSM0vMjHivO7mHGPRqMCI+dRZoIpEdyxczDyw/QGk9rm39QQRLoOvqvspIuiIcWe4hlvjr4K1Ido6PvwXzCXOb2uszwbc5mFrcxh+HLiaW8qzR33Sfli+P7nADjrQRp0hrkJoMSOSVChp5frXl/wZYWylQfsGksaXpn5r3ZsJyG6+9xPv95KkYjahd/tSxLwmZs67CfdPOFr2mTK6puTODQvsNWfnCzsTmkJzYmHeyJr4qIVT+pD2jFqBoHUA2rWVLJBs/j78EEfrZBFWp0sS9qyRp815DX8wuHTYWNbzyXOdHrQ15ODX3VtevK13owpfQLDbFq7+e9riW9KHUYoAW3KVnuwXrggzZdVNnrD5SqHOTLwhMg0g6jBHaevHjVX/YIdCDCCkVABrSzrlVrJwQwovyDJX8e3ZVuKeDnYNnR6TkFuTnbAJdZYK4j847tuKRVSrmdDYitEABHiGQ/PlyI6yGcVA2G/dFH+f5pOChFhjVHV0Yk+BKx7A+VREdONSEhVctnsl2ZRjg6npX7Jno568Y9GlwSxUi+EEEOmCAVK/eaCK+nrY="
+    secure: gTbtVs+15TUluNaxdQCZBkovEx7JKPI66QZUEO9UgzW1sDKTCeE84Z0Am3xb7xNAZhx2EkpbswVPi77l1TkhQCUnO92vvfAra6TsfdICiqbM2KVeFTmYljPSM0vMjHivO7mHGPRqMCI+dRZoIpEdyxczDyw/QGk9rm39QQRLoOvqvspIuiIcWe4hlvjr4K1Ido6PvwXzCXOb2uszwbc5mFrcxh+HLiaW8qzR33Sfli+P7nADjrQRp0hrkJoMSOSVChp5frXl/wZYWylQfsGksaXpn5r3ZsJyG6+9xPv95KkYjahd/tSxLwmZs67CfdPOFr2mTK6puTODQvsNWfnCzsTmkJzYmHeyJr4qIVT+pD2jFqBoHUA2rWVLJBs/j78EEfrZBFWp0sS9qyRp815DX8wuHTYWNbzyXOdHrQ15ODX3VtevK13owpfQLDbFq7+e9riW9KHUYoAW3KVnuwXrggzZdVNnrD5SqHOTLwhMg0g6jBHaevHjVX/YIdCDCCkVABrSzrlVrJwQwovyDJX8e3ZVuKeDnYNnR6TkFuTnbAJdZYK4j847tuKRVSrmdDYitEABHiGQ/PlyI6yGcVA2G/dFH+f5pOChFhjVHV0Yk+BKx7A+VREdONSEhVctnsl2ZRjg6npX7Jno568Y9GlwSxUi+EEEOmCAVK/eaCK+nrY=
   file:
   - build/deeponion-x13-hash-$X13HASH_VERSION-win32.zip
   - build/deeponion-x13-hash-$X13HASH_VERSION-win64.zip
   on:
     repo: thohemp/deeponion-x13-hash
     tags: true
- 
+env:
+  global:
+    secure: lryCurS5idCMER7sABolbzQ1otcH8EZwYxuGt6+w3Erp1Cnov4yehM3vCsxFy28iVG5yCX4wgUUSRqKmlUpbwMg5f5tO6Qo7MYDB2K7D6XCJK+j+cc4RAKlyu1clC+qPbu3i48/EKNmvqBS+3Xa9ZCNkR94M246g8R/Ci/KxLKPFwhoCDeG/cANtBX2mxLWiMP73RR21eHlXtBiMonUNcBsrkpKnOnu1xj7hWX8b+9MKubCylXrPjL/n6sXrIbPQnpyB85PL96pCLvkS51z2Ljrw4yjvgKWyjiUQVOlgwLwTPAYU/0yxXLriuCL5G1m+SoeJshc3641ZRO8ALXQrKLrmc26HDq6x4UBEBHgl3M4f4yRw7gDzRS9gToEMw+G3nq2C8N49SaRl1UMOZNXS/hHHRV+SofA4FSFQfyyqO4mTawG41lT7rLCdC673hem4E5cF9J5u6un5LzNhp09Ig21RZOp4u5nfWlSoSUcXOgcAl/MHFzkDKRfeOYvh//f1wBE7X5lIwWHv4QLsau9qyYtX/c5+s/c75Y/3NdOiKfZVhxo8k6RE3uRzWnVu/LWGYyyU3IJ5tHxynprJ7CFfcs1SRBxcVdCP859m8UdHnxvqKhhj9HqKeKhPnN0ajQ7UzQPZsWhPpvMsRiSbeTfTZGO6CRR4/65HhwDBZBowcoE=
