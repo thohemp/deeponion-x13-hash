@@ -23,7 +23,7 @@ deeponion_x13_hash_module = Extension('deeponion_x13_hash',
                                include_dirs=['.', './sha3'])
 
 setup (name = 'deeponion-x13-hash',
-       version = '1.0.3',
+       version = '1.0.5',
        description = 'Bindings for proof of work used by x13',
        ext_modules = [deeponion_x13_hash_module],
        url="https://github.com/thohemp/deeponion-x13-hash")
