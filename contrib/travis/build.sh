@@ -34,4 +34,4 @@ BUILD64=$BUILD_DIR/win64
 mkdir -p $BUILD64/deeponion-x13-hash
 cp $SRC_DIR/.libs/libx13hash-0.dll $BUILD64/deeponion-x13-hash
 cd $BUILD64
-zip -r $BUILD_DIR/deeponion-x13-hash-$X11HASH_VERSION-win64.zip deeponion-x13-hash
+zip -r $BUILD_DIR/deeponion-x13-hash-$X13HASH_VERSION-win64.zip deeponion-x13-hash
