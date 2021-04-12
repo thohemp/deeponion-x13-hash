@@ -10,22 +10,20 @@ before_install:
 - source contrib/travis/version_env.sh
 - echo x13hash version is $X13HASH_VERSION
 install:
-#- if [[ -n $TRAVIS_TAG ]]; then
+- if [[ -n $TRAVIS_TAG ]]; then
       ./contrib/travis/install.sh;
-#  fi
+  fi
 script:
-#- if [[ -n $TRAVIS_TAG ]]; then
+- if [[ -n $TRAVIS_TAG ]]; then
       mkdir -p build;
       ./contrib/travis/travis-build.sh;
-#  fi
-#deploy:
-#  provider: releases
-#  skip_cleanup: true
-#  api_key:
-#    secure: 
-#  file:
-#  - build/deeponion-x13-hash-$X13HASH_VERSION-win32.zip
-#  - build/deeponion-x13-hash-$X13HASH_VERSION-win64.zip
-#  on:
-#    repo: thohemp/deeponion-x13-hash
-#    tags: true
+  fi
+deploy:
+  provider: releases
+  skip_cleanup: true
+  file:
+  - build/deeponion-x13-hash-$X13HASH_VERSION-win32.zip
+  - build/deeponion-x13-hash-$X13HASH_VERSION-win64.zip
+  on:
+    repo: thohemp/deeponion-x13-hash
+    tags: true
