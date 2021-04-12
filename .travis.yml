@@ -9,6 +9,7 @@ matrix:
 before_install:
 - source contrib/travis/version_env.sh
 - echo x13hash version is $X13HASH_VERSION
+- echo tag is $TRAVIS_TAG
 install:
 - if [[ -n $TRAVIS_TAG ]]; then
       ./contrib/travis/install.sh;
